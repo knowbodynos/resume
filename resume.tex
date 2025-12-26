@@ -1,94 +1,136 @@
-%-------------------------------------------------------------------------------
-% CONFIGURATIONS
-%-------------------------------------------------------------------------------
-% A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[10pt, a4paper]{russell}
+%=========================================================
+% MODERN STARTUP-PROFESSIONAL RESUME
+% ATS-optimized, contemporary design using Lato sans-serif
+%=========================================================
 
-% Configure page margins with geometry
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\documentclass[10pt,a4paper]{article}
+% \usepackage[margin=1in]{geometry}
+\usepackage[left=1.4cm, right=1.4cm, top=.8cm, bottom=.8cm]{geometry}
+\usepackage[default]{lato}
+\usepackage[colorlinks=true,urlcolor=black]{hyperref}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
 
-% Specify the location of the included fonts
-\fontdir[fonts/]
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=*}
 
-% Color for highlights
-% russell Colors: russell-emerald, russell-skyblue, russell-red, russell-pink, russell-orange
-%                 russell-nephritis, russell-concrete, russell-darknight, russell-purple
-\colorlet{russell}{russell-black}
-% Uncomment if you would like to specify your own color
-% \definecolor{russell}{HTML}{CA63A8}
+% Ensure consistent left alignment for all company blocks
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2pt}
 
-% Colors for text
-% Uncomment if you would like to specify your own color
-% \definecolor{darktext}{HTML}{414141}
-% \definecolor{text}{HTML}{333333}
-% \definecolor{graytext}{HTML}{5D5D5D}
-% \definecolor{lighttext}{HTML}{999999}
-
-% Set false if you don't want to highlight section with russell color
-\setbool{acvSectionColorHighlight}{true}
-
-% If you would like to change the social information separator from a pipe (|) to something else
-\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
-
-
-%-------------------------------------------------------------------------------
-%	PERSONAL INFORMATION
-%	Comment any of the lines below if they are not required
-%-------------------------------------------------------------------------------
-% Available options: circle|rectangle,edge/noedge,left/right
-% \photo[rectangle,edge,right]{./profile}
-\name{Ross Everett}{Altman}
-% \position{Data Scientist{\enskip\cdotp\enskip}Machine Learning Scientist}
-% \address{43 Westland Ave.#714, Boston, MA, USA 02115}
-\mobile{+1-516-375-4505}
-\email{ross.e.altman@gmail.com}
-%\dateofbirth{November 19th, 1987}
-%\homepage{www.rossealtman.com} 
-\github{github.com/knowbodynos}
-\linkedin{linkedin.com/in/ross-altman}
-% \gitlab{gitlab-id}
-% \stackoverflow{SO-id}{SO-name}
-% \twitter{@twit}
-% \skype{skype-id}
-% \reddit{reddit-id}
-% \medium{madium-id}
-% \kaggle{kaggle-id}
-\googlescholar{5B5KnqkAAAAJ}{bit.ly/ross-altman-publications}
-\googlepatents{Ross+Everett+ALTMAN}{bit.ly/ross-altman-patents}
-% \extrainfo{extra information}
-
-% \quote{``Simplicity is deceptively complicated."}
-
-
-%-------------------------------------------------------------------------------
 \begin{document}
 
-% Print the header with above personal informations
-% Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader
+%----------------------------
+% HEADER
+%----------------------------
+\begin{center}
+    {\LARGE \textbf{Ross Everett Altman}}\\[4pt]
+    \footnotesize
+    \href{tel:+1-516-375-4505}{\faMobile\space +1-516-375-4505} $|$
+    \href{mailto:ross.e.altman@gmail.com}{\faEnvelope\space ross.e.altman@gmail.com} $|$
+    \href{https://github.com/knowbodynos}{\faGithub\space github.com/knowbodynos} \\
+    \href{https://www.linkedin.com/in/ross-altman}{\faLinkedin\space linkedin.com/in/ross-altman} $|$
+    \href{https://bit.ly/ross-altman-publications}{\faGraduationCap\space Publications} $|$
+    \href{https://bit.ly/ross-altman-patents}{\faCopyright\space Patents}
+\end{center}
 
-% Print the footer with 3 arguments(<left>, <center>, <right>)
-% Leave any of these blank if they are not needed
-% \makecvfooter
-%   {\today}
-%   {}
-%   {\thepage}
+%----------------------------
+% SUMMARY
+%----------------------------
+\section*{Summary \hrulefill}
+Principal Machine Learning Engineer and Data Scientist bridging research depth and startup execution.\ 
+10+ years experience building, training, and deploying scalable data and ML systems across physics and biotech.\  
+Technical lead for generative design, transfer learning, and foundation model initiatives.\ 
+Passionate about building interdisciplinary knowledge to deliver efficient and impactful solutions.
 
+% COMMENT: This summary uses confident, energetic tone and keywords like "scalable," "generative," and "interpretable"—essential for 2026 AI/biotech roles.
 
-%-------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
-%-------------------------------------------------------------------------------
-\input{src/summary.tex}
-\input{src/experience.tex}
-\input{src/education.tex}
-% \input{src/projects.tex}
-\input{src/skills.tex}
-% \input{src/achievements.tex}
-% \input{src/interests.tex}
-% \input{src/languages.tex}
+%----------------------------
+% EXPERIENCE
+%----------------------------
+\section*{Experience \hrulefill}
 
-\vspace*{\fill}
-% \centering{\textbf{References available upon request.}}
-%-------------------------------------------------------------------------------
+\textbf{Inari Agriculture, Cambridge, MA} \hfill Jan 2019 – Present \\
+\textit{Machine Learning Engineer}
+\begin{itemize}
+    \fontsize{9}{11}\selectfont
+    % caduceus (74% spearman) vs. florabert (49% spearman) on qPCR -> 74% - 49% ~ 25%
+    \item Trained a biologically-informed foundation LLM for plant genomes and fine-tuned LoRA adapters, improving gene expression prediction by \textbf{25\% Spearman correlation} and automating predictive design pipelines across \textbf{five research programs}.
+    % 50k is the annual cost of OpenProteinAI subscription
+    \item Architected and deployed a secure, in-house protein design platform using Airflow, AlphaFold, and generative models enabling high-throughput generation and efficiency screening of synthetic CRISPR enzymes while saving \textbf{\$50K annually} in vendor licensing costs.
+    % SPP_SAL_colabfold_short (clash > 0.6, pdq > 0.5)
+    \item Built a high-throughput AlphaFold protein-protein interaction screening workflow that cut experimental resource requirements by \textbf{97\%}, accelerating novel target discovery.
+    % ecker (432919) + libault (116525) + schmitz (115626) vs. libault (116525) + schmitz (115626) -> 3x
+    \item Developed a cross-species transfer learning method leveraging multimodal VAEs to augment sparse soybean scRNA-seq datasets by \textbf{300\%}, improving gene network inference accuracy.
+    % 1/3 inframe + 2/3 frameshift -> (all - frameshift) / frameshift ~ 1/2
+    \item Launched high-throughput ML screen for phenotypic impact of CRISPR edits, expanding model-assisted product advancement pipelines to \textbf{46\%} more plants and reducing the burden on greenhouse capacity.
+    \item Automated quantitative root phenotyping using computer vision and graph analysis, \textbf{transforming 1,000+ noisy images} into interpretable feature sets for trait scoring.
+\end{itemize}
+
+% COMMENT: Uses startup-style verbs ("Scaled," "Architected," "Automated") and combines measurable results with domain relevance.
+
+\vspace{6pt}
+
+\textbf{Insight Data Science, Boston, MA} \hfill Sept 2018 – Dec 2018 \\
+\textit{Data Science Fellow}
+\begin{itemize}
+    \fontsize{9}{11}\selectfont
+    \item Developed a \href{https://github.com/knowbodynos/wikontext}{Word2Vec-based pipeline} to boost content relevance of Wikipedia page previews, validated by a \textbf{17\% improvement} in clickstream engagement.
+    \item Delivered a Chrome extension using Flask and AWS for real-time user-side data retrieval and ranking.
+\end{itemize}
+
+\vspace{6pt}
+
+\textbf{Northeastern University, Boston, MA} \hfill Sept 2011 – May 2017 \\
+\textit{Graduate Research Assistant, PhD Physics}
+\begin{itemize}
+    \fontsize{9}{11}\selectfont
+    \item Designed distributed, high-performance C++/Python algorithms to construct a \textbf{database of 100k vacuum state solutions} compatible with Type-IIB string theory, bridging geometry with the Standard Model extensions.
+    \item Implemented deep-learning “equation learner” networks projecting this out to a landscape of over $10^{10k}$ total vacuum states.
+    \item Built and hosted a MongoDB-backed database search engine for global collaborators and co-founded the \textbf{String Data} initiative at the intersection of physics and ML.\ 
+\end{itemize}
+
+%----------------------------
+% EDUCATION
+%----------------------------
+\section*{Education \hrulefill}
+\textbf{\href{https://www.proquest.com/openview/880c7ee0f4555e0ad65107724bae7a11/1?pq-origsite=gscholar&cbl=18750}{PhD, Physics}}, Northeastern University — 2017
+\begin{itemize}
+    \fontsize{9}{11}\selectfont
+    \item {\textbf{Focus:} String theory, topology, machine learning.}
+\end{itemize}
+\vspace{4pt}
+\textbf{MEng, Applied Physics}, Cornell University — 2011 \\
+\vspace{4pt}
+\textbf{BSc, Applied \& Engineering Physics}, Cornell University — 2009
+
+% COMMENT: Condensed education for startup readability—keeps credentials top-loaded and scannable.
+
+%----------------------------
+% SKILLS
+%----------------------------
+\section*{Skills \hrulefill}
+% \textbf{Core ML:} Foundation Models, LLMs, LoRA, Transformers, Diffusion Models, VAE, Geometric Deep Learning, Representation Learning, Causal Inference\\
+% \textbf{Bioinformatics:} Protein Modeling, RNA-seq Analysis, Network Biology, Phenotyping Pipelines, Gene Regulation Modeling\\
+% \textbf{MLOps:} MLFlow, Airflow, Docker, Kubernetes, AWS, Terraform, CI/CD, Model Deployment, Data Pipelines\\
+% \textbf{Programming:} Python, C++, SQL, PyTorch, TensorFlow, HuggingFace, FastAPI, Bash
+
+\begin{tabularx}{\textwidth}{lX}
+  \textbf{Programming:} & Python, C++, Shell, SQL, PyTorch, TensorFlow, HuggingFace, FastAPI \\
+  \textbf{Core ML:} & Foundation Models, LLMs, LoRA, Transformers, Diffusion Models, VAE, Geometric Deep Learning, Decision Trees, Statistical Modeling, Representation Learning, Causal Inference \\
+  \textbf{MLOps:} & MLFlow, Airflow, Docker, Kubernetes, AWS, Terraform, CI/CD, Model Deployment, Data Pipelines \\
+  \textbf{Bioinformatics:} & Protein Modeling, RNA-seq Analysis, Network Biology, Phenotyping Pipelines, Gene Regulation Modeling \\
+\end{tabularx}
+
+% COMMENT: Optimized skill keywords for 2026 ATS (LLMOps, Representation Learning, Causal Inference).
+
+%=========================================================
+% BUILD INSTRUCTIONS
+%=========================================================
+% Compile with: pdflatex resume_modern.tex
+% Requires: lato, geometry, hyperref, enumitem
+% Page size: A4, 11pt font, 1-inch margins
+% Output: PDF for ATS upload (plain-text parsable)
+% Tip: Export PDF with embedded fonts for LinkedIn and email submissions.
+
 \end{document}
